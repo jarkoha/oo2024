@@ -20,7 +20,7 @@ public class Main {
         sonadeVordlus("Kass", "Koer");
 
         prindiOnne(27);
-        prindiOnne(50);
+        prindiOnne(52);
     }
 
     private static double traktoriRent(int tunnid, String firma) {
@@ -57,8 +57,14 @@ public class Main {
     }
 
     private static void prindiOnne(int age) {
-        for (int i = 0; i < age; i++) {
-            System.out.println("Palju onne!");
+        if (age > 50) {
+            for (int i = 0; i < age; i++) {
+                System.out.println("Väärikat sünnipäeva!");
+            }
+        } else {
+            for (int i = 0; i < age; i++) {
+                System.out.println("Palju õnne!");
+            }
         }
     }
 
