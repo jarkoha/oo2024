@@ -1,10 +1,9 @@
 import java.util.Random;
 
-public class Mangija {
-    int xCoord; //deklareerin uue muutuja (loob + mälukoht)
-    int yCoord;
-    char symbol;
+public class Mangija extends Tegelane implements JuhuslikKoordinaat { //tegelane on mängija ülemklass, igal klassil saab olla üks ülemklass
     Suund suund;
+    Ese ese; //klassikomplekt
+    Soiduk soiduk;
 
     public Mangija(Random random, int kaardiKorgus, int kaardiLaius) {
         xCoord = saaKoordinaat(random, kaardiLaius); //saab väärtuse
@@ -35,7 +34,7 @@ public class Mangija {
             }
         }
     } // liigu() sulgkinni
-    private int saaKoordinaat(Random random, int kaart) {
+    public int saaKoordinaat(Random random, int kaart) {
         return random.nextInt(1, kaart - 1);
     }
 } //mangja sulgkinni

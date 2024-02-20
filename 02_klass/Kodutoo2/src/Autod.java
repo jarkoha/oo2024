@@ -1,24 +1,24 @@
 public class Autod {
-    String mudel;
+    String mark;
     int aasta;
     double vaartusUuena;
     double protsent;
 
-    public Autod(String mudel, int aasta, double vaartusUuena, double protsent) {
-        this.mudel = mudel;
+    public Autod(String mark, int aasta, double vaartusUuena, double protsent) {
+        this.mark = mark;
         this.aasta = aasta;
         this.vaartusUuena = vaartusUuena;
         this.protsent = protsent;
     }
     public String nimi () {
         if (aasta < 2005) {
-            mudel = "Vana " +mudel;
+            mark = "Vana " +mark;
         } else if (aasta >= 2020) {
-            mudel = "Uus " +mudel;
+            mark = "Uus " +mark;
         } else {
-            mudel = mudel;
+            mark = mark;
         }
-        return mudel;
+        return mark;
     }
 
     public double erinevus(double vaartusPraegu) {
