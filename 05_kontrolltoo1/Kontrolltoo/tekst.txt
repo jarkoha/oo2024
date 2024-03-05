@@ -1,0 +1,36 @@
+Elas metsas mutionu
+keset kuuski noori vanu
+eluruum tal sügaval
+Aga Andrus ei elanud
+metsas kuuskede seas
+
+Suuri 'A' tähtesid: 2
+Väikseid 'a' tähtesid: 10
+Sõna: "ei" sisaldab 'a' või 'A': 0
+Sõna: "vanu" sisaldab 'a' või 'A': 1
+Sõna: "noori" sisaldab 'a' või 'A': 0
+Sõna: "kuuskede" sisaldab 'a' või 'A': 0
+Sõna: "metsas" sisaldab 'a' või 'A': 1
+Sõna: "eluruum" sisaldab 'a' või 'A': 0
+Sõna: "Andrus" sisaldab 'a' või 'A': 1
+Sõna: "seas" sisaldab 'a' või 'A': 1
+Sõna: "sügaval" sisaldab 'a' või 'A': 2
+Sõna: "kuuski" sisaldab 'a' või 'A': 0
+Sõna: "Elas" sisaldab 'a' või 'A': 1
+Sõna: "Aga" sisaldab 'a' või 'A': 2
+Sõna: "elanud" sisaldab 'a' või 'A': 1
+Sõna: "mutionu" sisaldab 'a' või 'A': 0
+Sõna: "keset" sisaldab 'a' või 'A': 0
+Sõna: "tal" sisaldab 'a' või 'A': 1
+Keskmiselt 'a' või 'A' sõnades: 0.6875
+A suhtarv tähtede üldarvuga: 0.1348314606741573
+
+Sõnade pikkus vs. 'a' tähtede arv:
+Pikkus\'a'	0 a	1 a	2 a
+2 tähte      	1	0	0
+3 tähte      	0	1	1
+4 tähte      	0	3	0
+5 tähte      	2	0	0
+6 tähte      	1	4	0
+7 tähte      	2	0	1
+8 tähte      	1	0	0
