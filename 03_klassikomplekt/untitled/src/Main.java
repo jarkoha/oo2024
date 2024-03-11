@@ -5,15 +5,20 @@ public class Main {
         //ühe klassi sees teine klass
         //klasside sisse omadused
 
-        Info info = new Info("MacBook", 16, "Nvidia");
-        Arvuti arvuti = new Arvuti(info , 1000, "Kristiine");
-        arvuti.muudaPoodi("Mustamäe");
-        arvuti.info.muudaNimetus("Mac Pro");
+        Auto auto = new Auto("Mersu", "E63 AMG", 151211, 6.3);
+        Esindus esindus = new Esindus(auto , 90000, "Rohe auto");
+        esindus.muudaEsindust("Silberauto");
+        esindus.auto.muudaMarki("Mercedes-Benz");
 
 
-        Arvuti arvuti2 = new Arvuti(
-                new Info("Dell", 8, "Intel"),
-                800, "Ülemiste");
-        arvuti2.paneAllahindlus(200);
+        Esindus auto2 = new Esindus(
+                new Auto("Ford", "Focus", 40000, 1.6),
+                24000, "Infoauto");
+        auto2.paneAllahindlus(5000);
+
+        System.out.println(auto.mark);
+        System.out.println(auto2.maksumus);
+
+
     }
 }
