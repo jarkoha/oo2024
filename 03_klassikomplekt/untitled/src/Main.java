@@ -17,6 +17,7 @@ public class Main {
         auto2.paneAllahindlus(5000);
 
         System.out.println(auto.mark);
+        System.out.println(esindus.esindus);
         System.out.println(auto2.maksumus);
 
 
