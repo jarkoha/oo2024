@@ -48,6 +48,7 @@ public class Main {
             tahtedelugemine.sonadeArv.forEach((word, count) -> System.out.println("Sõna: \"" + word + "\" sisaldab 'a' või 'A': " + count));
             System.out.println("Keskmiselt 'a' või 'A' sõnades: " + average);
             System.out.println("A suhtarv tähtede üldarvuga: " + aSuhtarv);
+         
 
             // Teksti faili kirjutamine
             bw = new BufferedWriter(new FileWriter(filePath, true));
