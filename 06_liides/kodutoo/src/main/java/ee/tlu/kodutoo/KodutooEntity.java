@@ -14,4 +14,8 @@ class KodutooEntity {
         this.number = number;
         this.paaris = paaris;
     }
+
+    public int getNumber() {
+        return this.number;
+    }
 }

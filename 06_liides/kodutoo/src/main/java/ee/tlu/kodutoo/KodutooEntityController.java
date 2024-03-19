@@ -34,7 +34,6 @@ public class KodutooEntityController {
         return numbrid;
     }
 
-    //ei tööta miskipärast
     @PutMapping("numbrid")
     public List<KodutooEntity> muudaNumbrid(
             @RequestParam int index,
@@ -46,6 +45,15 @@ public class KodutooEntityController {
             numbrid.set(index, number1);
             return numbrid;
 
+    }
+
+    @GetMapping("numbrid/summa")
+    public int liidaNumbrid() {
+        int sum = 0;
+        for (KodutooEntity entity : numbrid) {
+            sum += entity.getNumber(); // Assumes getNumber() getter method exists in KodutooEntity class
+        }
+        return sum;
     }
 
 }
