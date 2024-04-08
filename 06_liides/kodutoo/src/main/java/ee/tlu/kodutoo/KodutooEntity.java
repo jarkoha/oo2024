@@ -1,21 +1,20 @@
 package ee.tlu.kodutoo;
 
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
-class KodutooEntity {
+@AllArgsConstructor
+@Table(name = "numbrid")
+@Entity
+@NoArgsConstructor
+public class KodutooEntity {
+    @Id
     String nimetus;
     int number;
     boolean paaris;
-
-    public KodutooEntity(String nimetus, int number, boolean paaris) {
-        this.nimetus = nimetus;
-        this.number = number;
-        this.paaris = paaris;
-    }
-
-    public int getNumber() {
-        return this.number;
-    }
 }

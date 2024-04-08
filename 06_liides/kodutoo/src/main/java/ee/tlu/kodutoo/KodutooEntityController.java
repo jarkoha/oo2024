@@ -7,31 +7,45 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class KodutooEntityController {
-    List<KodutooEntity> numbrid = new ArrayList<>();
+
+    KodutooRepository kodutooRepository;
+    public KodutooEntityController(KodutooRepository kodutooRepository) {
+        this.kodutooRepository = kodutooRepository;
+    }
 
     @GetMapping("numbrid")
     public List<KodutooEntity> saaNumbrid(){
-        return numbrid;
+        return kodutooRepository.findAll();
     }
 
-    @PostMapping("numbrid/{nimetus}/{number}/{paaris}")
+    @PostMapping("numbrid/{nimetus}/{number}/{paaris}/{algarv}")
     public List<KodutooEntity> lisaNumber(
             @PathVariable String nimetus,
             @PathVariable int number,
             @PathVariable boolean paaris
             ) {
             KodutooEntity number1 = new KodutooEntity(nimetus, number, paaris);
-            numbrid.add(number1);
-            return numbrid;
+            kodutooRepository.save(number1);
+            return kodutooRepository.findAll();
     }
 
-    @DeleteMapping("numbrid/{index}")
+    @PostMapping("numbrid")
+    public List<KodutooEntity> lisaNumber(@RequestBody KodutooEntity kodutooEntity) {
+        /*if (kodutooEntity.algarv) {
+            return kodutooRepository.findAll();
+        }*/
+        kodutooRepository.save(kodutooEntity);
+        return kodutooRepository.findAll();
+    }
+
+    @DeleteMapping("numbrid/{nimi}")
     public List<KodutooEntity> kustutaNumber(
-            @PathVariable int index
+            @PathVariable String nimi
     ){
-        numbrid.remove(index);
-        return numbrid;
+        kodutooRepository.deleteById(nimi);
+        return kodutooRepository.findAll();
     }
 
     @PutMapping("numbrid")
@@ -42,18 +56,19 @@ public class KodutooEntityController {
             @RequestParam boolean paaris
             ) {
             KodutooEntity number1 = new KodutooEntity(nimetus, number, paaris);
-            numbrid.set(index, number1);
-            return numbrid;
+            kodutooRepository.save(number1);
+            return kodutooRepository.findAll();
 
     }
 
     @GetMapping("numbrid/summa")
     public int liidaNumbrid() {
-        int sum = 0;
+        /*int sum = 0;
         for (KodutooEntity entity : numbrid) {
-            sum += entity.getNumber(); // Assumes getNumber() getter method exists in KodutooEntity class
+            sum += entity.getNumber();
         }
-        return sum;
+        return sum;*/
+        return kodutooRepository.findAll().stream().mapToInt(KodutooEntity::getNumber).sum();
     }
 
 }
