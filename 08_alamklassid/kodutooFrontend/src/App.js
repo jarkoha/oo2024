@@ -81,10 +81,29 @@ function App() {
       /><label htmlFor="paarisFalse">Ei</label><br/><br/>
       <button onClick={() => lisa()}>Sisesta</button><br/>
       <br/>
+      <div className="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nimetus</th>
+            <th>Number</th>
+            <th>Paaris</th>
+            <th>Kustuta</th>
+          </tr>
+        </thead>
+        <tbody>
+          {numbrid.map((t, index) => (
+            <tr key={index}>
+              <td>{t.nimetus}</td>
+              <td>{t.number}</td>
+              <td>{t.paaris ? 'Jah' : 'Ei'}</td>
+              <td><button onClick={() => kustuta(t.nimetus)}>x</button></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
-      {numbrid.map(t => (
-        <div key={t.nimetus}>{t.nimetus}<button onClick={() => kustuta(t.nimetus)}>x</button></div>
-      ))}
+      </div>
     </div>
   );
 }
