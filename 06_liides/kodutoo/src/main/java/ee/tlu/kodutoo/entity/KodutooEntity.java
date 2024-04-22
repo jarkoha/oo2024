@@ -1,4 +1,4 @@
-package ee.tlu.kodutoo;
+package ee.tlu.kodutoo.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
-@Table(name = "numbrid")
+@Table(name = "planeedid")
 @Entity
 @NoArgsConstructor
 public class KodutooEntity {
     @Id
     String nimetus;
-    int number;
-    boolean paaris;
+    int labimoot;
+    int kaugus;
 }

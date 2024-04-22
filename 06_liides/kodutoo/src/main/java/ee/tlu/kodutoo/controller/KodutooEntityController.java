@@ -1,8 +1,9 @@
-package ee.tlu.kodutoo;
+package ee.tlu.kodutoo.controller;
 
+import ee.tlu.kodutoo.entity.KodutooEntity;
+import ee.tlu.kodutoo.repository.KodutooRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -15,24 +16,24 @@ public class KodutooEntityController {
         this.kodutooRepository = kodutooRepository;
     }
 
-    @GetMapping("numbrid")
-    public List<KodutooEntity> saaNumbrid(){
+    @GetMapping("planeedid")
+    public List<KodutooEntity> saaPlaneedid(){
         return kodutooRepository.findAll();
     }
 
-    @PostMapping("numbrid/{nimetus}/{number}/{paaris}/{algarv}")
-    public List<KodutooEntity> lisaNumber(
+    @PostMapping("planeedid/{nimetus}/{labimoot}/{kaugus}")
+    public List<KodutooEntity> lisaPlaneet(
             @PathVariable String nimetus,
-            @PathVariable int number,
-            @PathVariable boolean paaris
+            @PathVariable int labimoot,
+            @PathVariable int kaugus
             ) {
-            KodutooEntity number1 = new KodutooEntity(nimetus, number, paaris);
+            KodutooEntity number1 = new KodutooEntity(nimetus, labimoot, kaugus);
             kodutooRepository.save(number1);
             return kodutooRepository.findAll();
     }
 
-    @PostMapping("numbrid")
-    public List<KodutooEntity> lisaNumber(@RequestBody KodutooEntity kodutooEntity) {
+    @PostMapping("planeedid")
+    public List<KodutooEntity> lisaPlaneet(@RequestBody KodutooEntity kodutooEntity) {
         /*if (kodutooEntity.algarv) {
             return kodutooRepository.findAll();
         }*/
@@ -40,35 +41,35 @@ public class KodutooEntityController {
         return kodutooRepository.findAll();
     }
 
-    @DeleteMapping("numbrid/{nimi}")
-    public List<KodutooEntity> kustutaNumber(
+    @DeleteMapping("planeedid/{nimi}")
+    public List<KodutooEntity> kustutaPlaneet(
             @PathVariable String nimi
     ){
         kodutooRepository.deleteById(nimi);
         return kodutooRepository.findAll();
     }
 
-    @PutMapping("numbrid")
-    public List<KodutooEntity> muudaNumbrid(
+    @PutMapping("planeedid")
+    public List<KodutooEntity> muudaPlaneet(
             @RequestParam int index,
             @RequestParam String nimetus,
-            @RequestParam int number,
-            @RequestParam boolean paaris
+            @RequestParam int labimoot,
+            @RequestParam int kaugus
             ) {
-            KodutooEntity number1 = new KodutooEntity(nimetus, number, paaris);
-            kodutooRepository.save(number1);
+            KodutooEntity planeet1 = new KodutooEntity(nimetus, labimoot, kaugus);
+            kodutooRepository.save(planeet1);
             return kodutooRepository.findAll();
 
     }
 
-    @GetMapping("numbrid/summa")
+    /*@GetMapping("planeedid/summa")
     public int liidaNumbrid() {
-        /*int sum = 0;
+        int sum = 0;
         for (KodutooEntity entity : numbrid) {
             sum += entity.getNumber();
         }
-        return sum;*/
+        return sum;
         return kodutooRepository.findAll().stream().mapToInt(KodutooEntity::getNumber).sum();
-    }
+    }*/
 
 }
