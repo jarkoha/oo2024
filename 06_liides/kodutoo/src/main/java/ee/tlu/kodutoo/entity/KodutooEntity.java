@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class KodutooEntity {
     @Id
-    String nimetus;
-    int labimoot;
-    int kaugus;
+    private String nimetus;
+    private int labimoot;
+    private int kaugus;
 }

@@ -34,9 +34,6 @@ public class KodutooEntityController {
 
     @PostMapping("planeedid")
     public List<KodutooEntity> lisaPlaneet(@RequestBody KodutooEntity kodutooEntity) {
-        /*if (kodutooEntity.algarv) {
-            return kodutooRepository.findAll();
-        }*/
         kodutooRepository.save(kodutooEntity);
         return kodutooRepository.findAll();
     }
@@ -62,14 +59,5 @@ public class KodutooEntityController {
 
     }
 
-    /*@GetMapping("planeedid/summa")
-    public int liidaNumbrid() {
-        int sum = 0;
-        for (KodutooEntity entity : numbrid) {
-            sum += entity.getNumber();
-        }
-        return sum;
-        return kodutooRepository.findAll().stream().mapToInt(KodutooEntity::getNumber).sum();
-    }*/
 
 }

@@ -16,7 +16,7 @@ function App() {
 
 //uef -> JS: onLoad()
   useEffect(() => {
-    fetch("http://localhost:3000/planeedikomponendid")
+    fetch("http://localhost:8080/planeedikomponendid")
     .then(response => response.json()) //koos metadataga (headerid, staatuskood, OK jne)
     .then(json => {
       setPlaneedikomponendid(json);
@@ -24,7 +24,7 @@ function App() {
   }, []);
 
   useEffect(()=> {
-    fetch("http://localhost:3000/api/planeedid/")
+    fetch("http://localhost:8080/api/planeedid")
     .then(response => response.json()) //koos metadataga (headerid, staatuskood, OK jne)
     .then(json => {
       setKogus(json.length);
@@ -33,7 +33,7 @@ function App() {
   }, []);
 
   function kustuta(primaarvoti) {
-    fetch("http://localhost:3000/api/planeedid/" + primaarvoti, {"method": "DELETE"})
+    fetch("http://localhost:8080/api/planeedid" + primaarvoti, {"method": "DELETE"})
     .then(response => response.json())
     .then(json => {
       setKogus(json.length);
@@ -42,7 +42,7 @@ function App() {
   }
 
   function kustutaPK(primaarvoti) {
-    fetch("http://localhost:3000/planeedikomponendid/" + primaarvoti, {"method": "DELETE"})
+    fetch("http://localhost:8080/planeedikomponendid" + primaarvoti, {"method": "DELETE"})
     .then(response => response.json())
     .then(json => {
       setPlaneedikomponendid(json);
@@ -58,7 +58,7 @@ function App() {
       "labimoot": labimootRef.current.value,
       "kaugus": kaugusRef.current.value
     }
-    fetch("http://localhost:3000/api/planeedid", 
+    fetch("http://localhost:8080/api/planeedid", 
     {
       "method": "POST", 
       "body": JSON.stringify(number), 
@@ -73,14 +73,14 @@ function App() {
   }
 
   const planeetRef = useRef();
-  const galatikaRef = useRef();
+  const massRef = useRef();
   
   function lisaPK() {
     const lisatavPK = {
       "planeet": {"nimetus": planeetRef.current.value},
-      "galatika": galatikaRef.current.value
+      "mass": massRef.current.value
     }
-    fetch("http://localhost:3000/planeedikomponedid",
+    fetch("http://localhost:8080/planeedikomponedid",
     {
       "method": "POST",
       "body": JSON.stringify(lisatavPK),
@@ -129,8 +129,8 @@ function App() {
       <hr />
       <label>Planeedi nimi (Täpne nimi andmebaasist)</label><br/>
       <input ref={planeetRef} type ="text"/><br/>
-      <label>Galatika kus ta asub</label><br/>
-      <input ref={galatikaRef} type ="text"/><br/><br/>
+      <label>Planeedi mass</label><br/>
+      <input ref={massRef} type ="number"/><br/><br/>
       <button onClick={() => lisaPK()}>Sisesta</button><br/>
 
       {planeedikomponendid.map(tk => <div>{tk.id} | {tk.planeet?.nimetus} | <button onClick={() => kustutaPK(tk.id)}>x</button> </div>)}

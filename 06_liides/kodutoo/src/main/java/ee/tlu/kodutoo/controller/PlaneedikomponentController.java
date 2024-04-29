@@ -25,7 +25,7 @@ public class PlaneedikomponentController {
         return planeedikomponentRepository.findAll();
     }
 
-    @PostMapping("planeedikomponent")
+    @PostMapping("planeedikomponendid")
     public List<Planeedikomponent> lisaPlaneedikomponent(@RequestBody Planeedikomponent planeedikomponent){
         planeedikomponentRepository.save(planeedikomponent);
         return planeedikomponentRepository.findAll();

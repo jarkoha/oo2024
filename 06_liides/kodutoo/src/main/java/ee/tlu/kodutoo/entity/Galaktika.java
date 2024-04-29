@@ -5,15 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Planeedikomponent {
+public class Galaktika {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    @ManyToOne
-    KodutooEntity planeet;
-    int mass;
+    private Long Id;
+    private String nimi;
+
+    @ManyToMany
+    List<Planeedikomponent> planeedikomponendid;
 }
