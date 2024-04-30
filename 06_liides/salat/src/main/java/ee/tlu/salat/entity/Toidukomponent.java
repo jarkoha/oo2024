@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Getter
 @NoArgsConstructor
@@ -18,6 +20,10 @@ public class Toidukomponent {
     Long id;
     @ManyToOne //(cascade = CascadeType.ALL) // kui kustutatakse toiduained, siis kustuvad temaga ka seotud toiduained
     ToiduaineEntity toiduaine;
+
+    @ManyToOne
+    Toit toit;
+
     int kogus;
 
 }

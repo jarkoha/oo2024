@@ -18,6 +18,6 @@ public class Toit {
 
     private String nimetus;
 
-    @ManyToMany
-    List<Toidukomponent> toidukomponendid;
+    //@ManyToMany
+    //List<Toidukomponent> toidukomponendid;
 }
