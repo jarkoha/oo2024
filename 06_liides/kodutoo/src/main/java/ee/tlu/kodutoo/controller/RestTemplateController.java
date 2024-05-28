@@ -1,5 +1,6 @@
 package ee.tlu.kodutoo.controller;
 
+import ee.tlu.kodutoo.model.Autod;
 import ee.tlu.kodutoo.model.Root;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +17,27 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000/")
 public class RestTemplateController {
 
-    @GetMapping("saa-koik")
-    public List<Root> getRoot() {
-
+    @GetMapping("saa-autod")
+    public List<Autod> getAutod() {
         RestTemplate restTemplate = new RestTemplate();
-        String url = "https://www.osrsbox.com/osrsbox-db/monsters-complete.json";
-        ResponseEntity<Root[]> response = restTemplate.exchange(url, HttpMethod.GET, null, Root[].class);
+        String url = "https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/all-vehicles-model/records?limit=100";
+        ResponseEntity<Root> response = restTemplate.exchange(url, HttpMethod.GET, null, Root.class);
 
-        return List.of(response.getBody());
+        return response.getBody().results;
+    }
+
+    @GetMapping("saa-autod/{make}")
+    public List<Autod> getAutodByMake(@PathVariable String make) {
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Root> response = restTemplate.exchange("https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/all-vehicles-model/records?limit=100", HttpMethod.GET, null, Root.class);
+
+        List<Autod> sobilikudAutod = new ArrayList<>();
+        for (Autod a : response.getBody().results) {
+            if(a.getMake() != null && a.getMake().equalsIgnoreCase(make)) {
+                sobilikudAutod.add(a);
+            }
+        }
+        return sobilikudAutod;
     }
 
 }

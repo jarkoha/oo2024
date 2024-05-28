@@ -1,0 +1,98 @@
+package ee.tlu.kodutoo.model;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Autod {
+    public String make;
+    public String model;
+    public double barrels08;
+    public int barrelsa08;
+    public int charge120;
+    public int charge240;
+    public int city08;
+    public int city08u;
+    public int citya08;
+    public int citya08u;
+    public int citycd;
+    public int citye;
+    public int cityuf;
+    public int co2;
+    public int co2a;
+    public int co2tailpipeagpm;
+    public double co2tailpipegpm;
+    public int comb08;
+    public int comb08u;
+    public int comba08;
+    public int comba08u;
+    public int combe;
+    public int combinedcd;
+    public int combineduf;
+    public int cylinders;
+    public double displ;
+    public String drive;
+    public String engid;
+    public ArrayList<String> eng_dscr;
+    public Object fescore;
+    public int fuelcost08;
+    public int fuelcosta08;
+    public String fueltype;
+    public String fueltype1;
+    public Object ghgscore;
+    public Object ghgscorea;
+    public int highway08;
+    public int highway08u;
+    public int highwaya08;
+    public int highwaya08u;
+    public int highwaycd;
+    public int highwaye;
+    public int highwayuf;
+    public int hlv;
+    public int hpv;
+    public String id;
+    public int lv2;
+    public int lv4;
+    public String mpgdata;
+    public String phevblended;
+    public int pv2;
+    public int pv4;
+    public int range;
+    public int rangecity;
+    public int rangecitya;
+    public int rangehwy;
+    public int rangehwya;
+    public String trany;
+    public double ucity;
+    public int ucitya;
+    public double uhighway;
+    public int uhighwaya;
+    public String vclass;
+    public String year;
+    public int yousavespend;
+    public Object guzzler;
+    public String trans_dscr;
+    public String tcharger;
+    public Object scharger;
+    public String atvtype;
+    public Object fueltype2;
+    public Object rangea;
+    public Object evmotor;
+    public Object mfrcode;
+    public Object c240dscr;
+    public int charge240b;
+    public Object c240bdscr;
+    public String createdon;
+    public String modifiedon;
+    public Object startstop;
+    public int phevcity;
+    public int phevhwy;
+    public int phevcomb;
+    public String basemodel;
+}

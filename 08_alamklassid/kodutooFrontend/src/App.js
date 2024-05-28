@@ -33,7 +33,7 @@ function App() {
   }, []);
 
   function kustuta(primaarvoti) {
-    fetch("http://localhost:8080/api/planeedid" + primaarvoti, {"method": "DELETE"})
+    fetch("http://localhost:8080/api/planeedid/" + primaarvoti, {"method": "DELETE"})
     .then(response => response.json())
     .then(json => {
       setKogus(json.length);
@@ -42,7 +42,7 @@ function App() {
   }
 
   function kustutaPK(primaarvoti) {
-    fetch("http://localhost:8080/planeedikomponendid" + primaarvoti, {"method": "DELETE"})
+    fetch("http://localhost:8080/planeedikomponendid/" + primaarvoti, {"method": "DELETE"})
     .then(response => response.json())
     .then(json => {
       setPlaneedikomponendid(json);
@@ -80,7 +80,7 @@ function App() {
       "planeet": {"nimetus": planeetRef.current.value},
       "mass": massRef.current.value
     }
-    fetch("http://localhost:8080/planeedikomponedid",
+    fetch("http://localhost:8080/planeedikomponendid",
     {
       "method": "POST",
       "body": JSON.stringify(lisatavPK),
@@ -88,7 +88,10 @@ function App() {
     })
     .then(response => response.json())
     .then(json => {
-      setPlaneedikomponendid(json);
+      fetch("http://localhost:8080/planeedikomponendid")
+      .then(response => response.json())
+      .then(json => {
+        setPlaneedikomponendid(json)});
     })
   }
 
@@ -133,7 +136,7 @@ function App() {
       <input ref={massRef} type ="number"/><br/><br/>
       <button onClick={() => lisaPK()}>Sisesta</button><br/>
 
-      {planeedikomponendid.map(tk => <div>{tk.id} | {tk.planeet?.nimetus} | <button onClick={() => kustutaPK(tk.id)}>x</button> </div>)}
+      {planeedikomponendid.map(tk => <div>{tk.id} | {tk.planeet?.nimetus} | {tk.mass} |<button onClick={() => kustutaPK(tk.id)}>x</button> </div>)}
 
     </div>
   );
